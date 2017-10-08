@@ -12,6 +12,7 @@
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
     "build:demo": "node build/build-demo.js",
+    "gh-pages": "rm -rf public && npm run build:demo && cd public && git add --all && git commit -m \"Pages updated at $(date)\" && git push && cd ..",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
