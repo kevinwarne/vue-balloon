@@ -4,6 +4,10 @@
 
 Check out the example [here](https://kevinwarne.github.io/vue-balloon/).
 
+## Dependencies
+
+This plugin uses font awesome icons so either include that or redefine custom icons for the classes `.fa-chevron-up`, `.fa-chevron-down`, `.fa-expand`, `.fa-compress`, `.fa-close`.
+
 ## Install & Basic Usage
 
 Add as dependency with npm or yarn.
