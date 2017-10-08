@@ -53,7 +53,33 @@ or
 </script>
 ```
 
-## Build Setup
+## props
+
+```javascript
+props: {
+  // balloon title
+  title: {
+    default: ''
+  },
+
+  // position: bottom-right, bottom-left, top-right, or top-left
+  position: {
+    default: 'bottom-right'
+  },
+
+  // hide the close (x) icon on the balloon
+  hideCloseButton: {
+    default: false
+  },
+
+  // hide the concise (chevron) icons on the balloon
+  hideConciseButton: {
+    default: false
+  }
+}
+```
+
+## Contributing
 
 ``` bash
 # install dependencies

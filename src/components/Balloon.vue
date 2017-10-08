@@ -10,13 +10,13 @@
           <i
             class = 'fa fa-chevron-up'
             aria-hidden = 'true'
-            v-if = 'concise && !maximized'
+            v-if = 'concise && !maximized && !hideConciseButton'
             @click = 'concise = false'
           ></i>
           <i
             class = 'fa fa-chevron-down'
             aria-hidden = 'true'
-            v-if = '!concise && !maximized'
+            v-if = '!concise && !maximized && !hideConciseButton'
             @click = 'concise = true'
           ></i>
           <i
@@ -28,7 +28,7 @@
           <i
             class = 'fa fa-close'
             aria-hidden = 'true'
-            v-if = '!maximized'
+            v-if = '!maximized && !hideCloseButton'
             @click = 'close'
           ></i>
         </div>
@@ -60,12 +60,24 @@
 <script>
   export default {
     props: {
+      // balloon title
       title: {
         default: ''
       },
 
+      // position: bottom-right, bottom-left, top-right, or top-left
       position: {
         default: 'bottom-right'
+      },
+
+      // hide the close (x) icon on the balloon
+      hideCloseButton: {
+        default: false
+      },
+
+      // hide the concise (chevron) icons on the balloon
+      hideConciseButton: {
+        default: false
       }
     },
 
