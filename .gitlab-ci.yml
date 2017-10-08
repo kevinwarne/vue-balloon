@@ -1,0 +1,13 @@
+image: node:6.11.3
+
+pages:
+  stage: deploy
+  script:
+  - npm install -g yarn
+  - yarn install
+  - npm run build:demo
+  artifacts:
+    paths:
+    - public
+  only:
+  - master

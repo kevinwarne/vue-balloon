@@ -1,0 +1,193 @@
+.vb-wrapper {
+  $transition-length: .3s;
+  $transition-length-long: $transition-length * 2;
+  $balloon-base-width: 220px;
+  $content-ratio: 9/16;
+  $minimized-padding: 20px;
+  $maximized-padding: 20px;
+  $small-screen-width: 320px;
+  $small-screen-height: 450px;
+
+  .vb {
+    position: fixed;
+    z-index: 10000;
+    transition: transform $transition-length-long,
+                left $transition-length-long,
+                top $transition-length-long,
+                box-shadow $transition-length-long;
+
+    border-radius: 2px;
+    overflow: auto;
+    box-shadow: 2px 2px 3px rgba(black, 0.4);
+
+    &.vb-bottom-right {
+      left: calc(100% - #{$minimized-padding});
+      top: calc(100% - #{$minimized-padding});
+      transform: translate(-100%, -100%);
+    }
+
+    &.vb-bottom-left {
+      left: 10px;
+      top: calc(100% - #{$minimized-padding});
+      transform: translate(0%, -100%);
+    }
+
+    &.vb-top-left {
+      left: $minimized-padding;
+      top: $minimized-padding;
+      transform: translate(0%, 0%);
+    }
+
+    &.vb-top-right {
+      left: calc(100% - #{$minimized-padding});
+      top: 10px;
+      transform: translate(-100%, 0%);
+    }
+
+    &.vb-concise {
+      .vb-content {
+        height: 0px;
+        max-height: 0px;
+      }
+    }
+
+    @media screen and (max-width: $small-screen-width),
+           screen and (max-height: $small-screen-height) {
+      .vb-content {
+        height: 0px;
+        max-height: 0px;
+      }
+
+      .fa-chevron-down,
+      .fa-chevron-up {
+        display: none;
+      }
+    }
+
+    &.vb-maximized {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      box-shadow: 0px 0px 0px rgba(black, 0.4);
+      .vb-content {
+        width: calc(90vw - #{$maximized-padding});
+        height: calc(90vw * #{$content-ratio} - #{$maximized-padding});
+        max-width: 1200px;
+        max-height: calc(1200px * #{$content-ratio});
+      }
+
+      .vb-header {
+        padding: 13px;
+
+        i {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .vb-header {
+    background: #eceae8;
+    color: #777;
+    padding: 5px;
+    height: 20px;
+    transition: padding $transition-length-long;
+
+    .vb-title {
+      transition: opacity $transition-length;
+      margin-top: 2px;
+      float: left;
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    .vb-buttons {
+      float: right;
+    }
+
+    i {
+      transition: opacity $transition-length,
+                  font-size $transition-length-long;
+
+      cursor: pointer;
+      font-size: 15px;
+      margin-left: 5px;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .vb-content {
+    transition: width $transition-length-long,
+                height $transition-length-long,
+                max-width $transition-length-long,
+                max-height $transition-length-long;
+    position: relative;
+    width: $balloon-base-width;
+    height: $balloon-base-width * $content-ratio;
+    max-width: $balloon-base-width;
+    max-height: $balloon-base-width * $content-ratio;
+    overflow: hidden;
+
+    background: #222;
+    color: white;
+
+    & iframe,
+    & > div {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .vb-maximized-overlay {
+    transition: opacity $transition-length-long;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: black;
+    z-index: 9999;
+    opacity: 0.7;
+  }
+
+  .vb-minimized-overlay {
+    transition: opacity $transition-length;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background: black;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    i {
+      color: white;
+      font-size: 3em;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .vb-overlay-enter,
+  .vb-overlay-leave-active {
+    opacity: 0;
+  }
+}
