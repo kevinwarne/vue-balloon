@@ -1,5 +1,5 @@
 .vb-wrapper {
-  $transition-length: 0.3s;
+  $transition-length: 0.2s;
   $transition-length-long: $transition-length;
   $balloon-base-width: 220px;
   $content-ratio: 9/16;
@@ -73,7 +73,8 @@
         width: calc(100vw - #{2 * $maximized-padding});
         height: calc((100vw - #{2 * $maximized-padding}) * #{$content-ratio});
         max-width: 1200px;
-        max-height: calc(1200px * #{$content-ratio});
+        max-height: calc(100vh - #{$maximized-padding} - 46px);
+        overflow: auto;
       }
 
       .vb-content-slot {
@@ -141,7 +142,6 @@
   }
 
   .vb-content {
-
     position: relative;
     width: $balloon-base-width;
     height: $balloon-base-width * $content-ratio;
@@ -154,17 +154,16 @@
   }
 
   .vb-content-slot {
-
     transform-origin: 0% 0%;
     transform: scale(1);
     width: 100%;
     height: 100%;
 
-    & iframe,
-    & > div {
-      width: 100%;
-      height: 100%;
-    }
+    // & iframe,
+    // & > div {
+    //   width: 100%;
+    //   height: 100%;
+    // }
   }
 
   .vb-maximized-overlay {

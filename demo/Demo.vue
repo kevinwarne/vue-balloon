@@ -8,8 +8,9 @@
       position = 'bottom-right'
       @maximize = 'playVideo'
       @minimize = 'pauseVideo'
+      :zooming = 'true'
     >
-      <youtube :video-id = 'videoId' ref = 'player'>
+      <youtube :video-id = 'videoId' ref = 'player' class = 'video'>
       </youtube>
     </balloon>
   </div>
@@ -40,3 +41,15 @@
     }
   }
 </script>
+
+<style>
+  .video,
+  .video iframe {
+    height: 100%;
+    width: 100%;
+  }
+
+  .vb-content-slot {
+    overflow: hidden;
+  }
+</style>

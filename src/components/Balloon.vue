@@ -34,18 +34,14 @@
         </div>
       </div>
       <div class = 'vb-content'>
-        <div class = 'vb-content-slot'>
-          <slot></slot>
+        <div class = 'vb-content-slot'><slot></slot></div>
+        <div
+          class = 'vb-minimized-overlay'
+          v-if = '!maximized'
+          @click = 'maximize'
+        >
+          <i class = 'fa fa-expand' aria-hidden = 'true'></i>
         </div>
-        <transition name = 'vb-overlay'>
-          <div
-            class = 'vb-minimized-overlay'
-            v-if = '!maximized'
-            @click = 'maximize'
-          >
-            <i class = 'fa fa-expand' aria-hidden = 'true'></i>
-          </div>
-        </transition>
       </div>
     </div>
     <transition name = 'vb-overlay'>
