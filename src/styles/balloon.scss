@@ -1,6 +1,6 @@
 .vb-wrapper {
   $transition-length: 0.3s;
-  $transition-length-long: $transition-length * 2;
+  $transition-length-long: $transition-length;
   $balloon-base-width: 220px;
   $content-ratio: 9/16;
   $minimized-padding: 20px;
@@ -13,45 +13,33 @@
     top: 0;
     left: 0;
     z-index: 10000;
-    transition: transform $transition-length-long,
-                left $transition-length-long,
-                top $transition-length-long,
-                box-shadow $transition-length-long;
 
     border-radius: 2px;
     overflow: auto;
     box-shadow: 2px 2px 3px rgba(black, 0.4);
 
     &.vb-bottom-right {
-      transform: translate3d(
-        calc(100vw - 100% - #{$minimized-padding}),
-        calc(100vh - 100% - #{$minimized-padding}),
-        0
-      );
+      left: calc(100% - #{$minimized-padding});
+      top: calc(100% - #{$minimized-padding});
+      transform: translate(-100%, -100%);
     }
 
     &.vb-bottom-left {
-      transform: translate3d(
-        calc(#{$minimized-padding}),
-        calc(100vh - 100% - #{$minimized-padding}),
-        0
-      );
+      left: #{$minimized-padding};
+      top: calc(100% - #{$minimized-padding});
+      transform: translate(0%, -100%);
     }
 
     &.vb-top-left {
-      transform: translate3d(
-        calc(#{$minimized-padding}),
-        calc(#{$minimized-padding}),
-        0
-      );
+      left: #{$minimized-padding};
+      top: #{$minimized-padding};
+      transform: translate(0%, 0%);
     }
 
     &.vb-top-right {
-      transform: translate3d(
-        calc(100vw - 100% - #{$minimized-padding}),
-        calc(#{$minimized-padding}),
-        0
-      );
+      left: calc(100% - #{$minimized-padding});
+      top: #{$minimized-padding};
+      transform: translate(-100%, 0%);
     }
 
     &.vb-concise {
@@ -75,12 +63,15 @@
     }
 
     &.vb-maximized {
-      transform: translate3d(calc(50vw - 50%), calc(10px), 0);
+      left: 50%;
+      top: $maximized-padding;
+      transform: translate(-50%, 0);
+
       box-shadow: 0px 0px 0px rgba(black, 0.4);
 
       .vb-content {
-        width: calc(90vw - #{$maximized-padding});
-        height: calc(90vw * #{$content-ratio} - #{$maximized-padding});
+        width: calc(100vw - #{2 * $maximized-padding});
+        height: calc((100vw - #{2 * $maximized-padding}) * #{$content-ratio});
         max-width: 1200px;
         max-height: calc(1200px * #{$content-ratio});
       }
@@ -116,7 +107,6 @@
     color: #777;
     padding: 5px;
     height: 20px;
-    transition: padding $transition-length-long;
 
     .vb-title {
       transition: opacity $transition-length;
@@ -138,8 +128,7 @@
     }
 
     i {
-      transition: opacity $transition-length,
-                  font-size $transition-length-long;
+      transition: opacity $transition-length;
 
       cursor: pointer;
       font-size: 15px;
@@ -152,10 +141,6 @@
   }
 
   .vb-content {
-    transition: width $transition-length-long,
-                height $transition-length-long,
-                max-width $transition-length-long,
-                max-height $transition-length-long;
 
     position: relative;
     width: $balloon-base-width;
@@ -169,9 +154,6 @@
   }
 
   .vb-content-slot {
-    transition: transform $transition-length-long,
-                width $transition-length-long,
-                height $transition-length-long;
 
     transform-origin: 0% 0%;
     transform: scale(1);

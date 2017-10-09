@@ -22,7 +22,7 @@ exports.cssLoaders = function (options) {
 
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
-    var loaders = [cssLoader, 'postcss-loader' ]
+    var loaders = [cssLoader, 'postcss-loader']
     if (loader) {
       loaders.push({
         loader: loader + '-loader',
