@@ -34,7 +34,9 @@
         </div>
       </div>
       <div class = 'vb-content'>
-        <slot></slot>
+        <div class = 'vb-content-slot'>
+          <slot></slot>
+        </div>
         <transition name = 'vb-overlay'>
           <div
             class = 'vb-minimized-overlay'
@@ -70,6 +72,11 @@
         default: 'bottom-right'
       },
 
+      // enable the css transform: scale() effect
+      zooming: {
+        default: false
+      },
+
       // hide the close (x) icon on the balloon
       hideCloseButton: {
         default: false
@@ -95,7 +102,8 @@
           'vb',
           `vb-${this.position}`,
           this.concise ? 'vb-concise' : '',
-          this.maximized ? 'vb-maximized' : ''
+          this.maximized ? 'vb-maximized' : '',
+          !this.maximized && this.zooming ? 'vb-zoomed-out' : ''
         ]
       }
     },

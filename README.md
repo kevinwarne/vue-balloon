@@ -67,6 +67,11 @@ props: {
     default: 'bottom-right'
   },
 
+  // enable the css transform: scale() effect
+  zooming: {
+    default: false
+  },
+
   // hide the close (x) icon on the balloon
   hideCloseButton: {
     default: false
