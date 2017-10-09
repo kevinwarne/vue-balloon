@@ -108,6 +108,7 @@
     color: #777;
     padding: 5px;
     height: 20px;
+    border-bottom:1px solid #aaa;
 
     .vb-title {
       transition: opacity $transition-length;
@@ -149,8 +150,7 @@
     max-height: $balloon-base-width * $content-ratio;
     overflow: hidden;
 
-    background: #222;
-    color: white;
+    background: #eceae8;
   }
 
   .vb-content-slot {
