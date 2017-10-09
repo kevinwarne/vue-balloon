@@ -1,6 +1,6 @@
 {
   "name": "vue-balloon",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Vue.js plugin to create a floating element that expands when clicked.",
   "author": "Kevin Warne <kjw988@gmail.com>",
   "repository": "kevinwarne/vue-balloon",
