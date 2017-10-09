@@ -1,6 +1,6 @@
 .vb-wrapper {
-  $transition-length: 0.2s;
-  $transition-length-long: $transition-length;
+  $transition-length: 0.25s;
+  $transition-length-long: $transition-length * 2;
   $balloon-base-width: 220px;
   $content-ratio: 9/16;
   $minimized-padding: 20px;
