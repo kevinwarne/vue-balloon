@@ -112,7 +112,7 @@
 
     .vb-title {
       transition: opacity $transition-length;
-      margin-top: 2px;
+      box-sizing: content-box;
       float: left;
       max-width: 150px;
       overflow: hidden;
