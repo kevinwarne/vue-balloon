@@ -71,8 +71,8 @@
 
       .vb-content {
         width: calc(100vw - #{2 * $maximized-padding});
-        height: calc((100vw - #{2 * $maximized-padding}) * #{$content-ratio});
         max-width: 1200px;
+        height: calc(1200px * #{$content-ratio});
         max-height: calc(100vh - #{$maximized-padding} - 46px);
         overflow: auto;
       }
@@ -158,12 +158,6 @@
     transform: scale(1);
     width: 100%;
     height: 100%;
-
-    // & iframe,
-    // & > div {
-    //   width: 100%;
-    //   height: 100%;
-    // }
   }
 
   .vb-maximized-overlay {
