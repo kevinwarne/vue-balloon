@@ -10,6 +10,8 @@
 
   .vb {
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 10000;
     transition: transform $transition-length-long,
                 left $transition-length-long,
@@ -21,27 +23,35 @@
     box-shadow: 2px 2px 3px rgba(black, 0.4);
 
     &.vb-bottom-right {
-      left: calc(100% - #{$minimized-padding});
-      top: calc(100% - #{$minimized-padding});
-      transform: translate(-100%, -100%);
+      transform: translate3d(
+        calc(100vw - 100% - #{$minimized-padding}),
+        calc(100vh - 100% - #{$minimized-padding}),
+        0
+      );
     }
 
     &.vb-bottom-left {
-      left: 10px;
-      top: calc(100% - #{$minimized-padding});
-      transform: translate(0%, -100%);
+      transform: translate3d(
+        calc(#{$minimized-padding}),
+        calc(100vh - 100% - #{$minimized-padding}),
+        0
+      );
     }
 
     &.vb-top-left {
-      left: $minimized-padding;
-      top: $minimized-padding;
-      transform: translate(0%, 0%);
+      transform: translate3d(
+        calc(#{$minimized-padding}),
+        calc(#{$minimized-padding}),
+        0
+      );
     }
 
     &.vb-top-right {
-      left: calc(100% - #{$minimized-padding});
-      top: 10px;
-      transform: translate(-100%, 0%);
+      transform: translate3d(
+        calc(100vw - 100% - #{$minimized-padding}),
+        calc(#{$minimized-padding}),
+        0
+      );
     }
 
     &.vb-concise {
@@ -65,10 +75,7 @@
     }
 
     &.vb-maximized {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translate(-50%, 0%);
+      transform: translate3d(calc(50vw - 50%), calc(10px), 0);
       box-shadow: 0px 0px 0px rgba(black, 0.4);
 
       .vb-content {
