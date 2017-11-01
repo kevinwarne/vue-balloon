@@ -246,7 +246,7 @@ props: {
 
 ## Component: `BalloonSet`
 
-> BalloonSet was added in vue-balloon v1.0.17
+> BalloonSet was added in vue-balloon v1.0.18
 
 ### `props`
 

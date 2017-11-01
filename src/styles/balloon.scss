@@ -268,7 +268,7 @@ $small-screen-height: 450px;
 
 .vb-transition-enter,
 .vb-transition-leave-active {
-  opacity: 0;
+  opacity: 0 !important;
 }
 
 .vb-multiple
