@@ -80,6 +80,7 @@
     "url-loader": "^0.5.8",
     "vue": "^2.4.2",
     "vue-loader": "^13.0.4",
+    "vue-router": "^3.0.1",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.4.2",
     "vue-youtube-embed": "^2.1.2",

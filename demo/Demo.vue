@@ -1,55 +1,43 @@
 <template>
   <div id = 'demo'>
-    <!-- load font awesome dependency -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <div class = 'links'>
+      <router-link :to = '{name: "single" }'>Single Balloon</router-link>
+      <router-link :to = '{name: "multiple" }'>Multiple Balloons</router-link>
+      <a href = 'https://github.com/kevinwarne/vue-balloon'>Github</a>
+    </div>
 
-    <balloon
-      title = 'One Cute Cat'
-      position = 'bottom-right'
-      @maximize = 'playVideo'
-      @minimize = 'pauseVideo'
-      :zooming = 'true'
-    >
-      <youtube :video-id = 'videoId' ref = 'player' class = 'video'>
-      </youtube>
-    </balloon>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import { Balloon } from '../src/index'
-
-  export default {
-    components: {
-      Balloon
-    },
-
-    data () {
-      return {
-        videoId: '0Bmhjf0rKe8'
-      }
-    },
-
-    methods: {
-      playVideo () {
-        this.$refs.player.player.playVideo()
-      },
-
-      pauseVideo () {
-        this.$refs.player.player.pauseVideo()
-      }
-    }
-  }
+  export default { }
 </script>
 
 <style>
-  .video,
-  .video iframe {
-    height: 100%;
-    width: 100%;
+  a {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 2em;
+    padding: 0.75em 2em;
+    background: white;
+    text-decoration: none;
+    color: #4fc08d;
+    border: 1px solid #4fc08d;
+    transition: all 0.15s ease;
+    font-family: 'Arial';
+    margin: 0px 10px;
+    display: inline-block;
+    margin-top: 30px;
+    width: 140px;
   }
 
-  .vb-content-slot {
-    overflow: hidden;
+  a.router-link-exact-active {
+    background-color: #4fc08d;
+    color: white;
+  }
+
+  .links {
+    text-align: center;
   }
 </style>
