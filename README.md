@@ -78,7 +78,7 @@ To achieve multiple fixed balloons on the same page we use Vue's scoped slot fun
 </template>
 
 <script>
-  import { BalloonSet } from '../src/index'
+  import { BalloonSet } from 'vue-balloon'
 
   export default {
     components: {
@@ -133,7 +133,7 @@ For multiple balloons with the **BalloonSet** component:
 </template>
 
 <script>
-  import { BalloonSet } from '../src/index'
+  import { BalloonSet } from 'vue-balloon'
 
   export default {
     components: {
