@@ -26,7 +26,7 @@
             <i
               class = 'fa fa-close'
               aria-hidden = 'true'
-              v-if = '!maximized && !hideCloseButton'
+              v-if = '(showCloseWhenMaximized || !maximized) && !hideCloseButton'
               @click = 'close'
             ></i>
           </div>
@@ -89,6 +89,12 @@
 
       // when balloon is created it will have this initial 'concise' state
       initiallyConcise: {
+        default: false,
+        type: Boolean
+      },
+
+      // when balloon is maximized, it will still have the close button
+      showCloseWhenMaximized: {
         default: false,
         type: Boolean
       },

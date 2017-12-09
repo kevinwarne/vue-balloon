@@ -234,10 +234,16 @@ props: {
   hideConciseButton: {
     default: false,
     type: Boolean
-  }
+  },
 
   // when balloon is created it will have this initial 'concise' state
   initiallyConcise: {
+    default: false,
+    type: Boolean
+  },
+
+  // when balloon is maximized, it will still have the close button
+  showCloseWhenMaximized: {
     default: false,
     type: Boolean
   }
